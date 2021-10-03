@@ -1,6 +1,6 @@
 import click
 import serial
-import sys
+from rich import print
 
 
 @click.command()
@@ -13,7 +13,8 @@ def dump():
 
     while True:
         try:
-            print(ser.readline().decode("utf-8"))
+            readings = ser.readline().decode("utf-8").split('\t')
+            print('[red] {0} [orange] {0} [yellow] {0} [green] {0} [blue] {0} [violet] {0}'.format(*readings), end='\r')
         except KeyboardInterrupt:
-            print("Keyboard interrupt")
+            print("[red] :x: Keyboard interrupt")
             break
