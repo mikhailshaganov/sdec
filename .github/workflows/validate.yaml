@@ -22,7 +22,7 @@ jobs:
           python-version: '3.9'
           cache: 'poetry'
       - run: poetry install
-      - run: poetry run pytest
+#       - run: poetry run pytest
 
 #       - name: Install Poetry
 #         uses: patrick91/setup-python@v2
